@@ -35,7 +35,8 @@ public class MainMenu {
         System.out.println("");
         System.out.println("1) Se medlemsliste");
         System.out.println("2) Se restance på medlemmer");
-        System.out.println("3) Tilbage til hovedmenu");
+        System.out.println("3) Opdatér restance på medlemmer");
+        System.out.println("4) Tilbage til hovedmenu");
     }
     
     public static void visTraenerMenu() {
