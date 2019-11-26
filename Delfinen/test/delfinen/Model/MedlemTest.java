@@ -20,7 +20,6 @@ public class MedlemTest {
     @Test
     public void testKontingentBetaling() {
         Medlem m = new Medlem(16,"Butterfly","John",true);        
-        Medlem instance = null;
         int expResult = 1000;
         int result = m.kontingentBetaling();
         assertEquals(expResult, result);
