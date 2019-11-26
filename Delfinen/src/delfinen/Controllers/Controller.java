@@ -79,6 +79,8 @@ public class Controller {
                 case "2":
                     break;
                 case "3":
+                    break;
+                case "4":
                     quit = true;
                     System.out.println("Programmet er lukket ned.");
                     break;
