@@ -22,9 +22,7 @@ public class Medlem {
         if(this.aktiv=false){
             kontingentBetaling=500;
             return kontingentBetaling;
-        }
-        
-                
+        }                        
         else if(this.alder<18){
             kontingentBetaling=1000;
         }
@@ -34,7 +32,6 @@ public class Medlem {
     else if(60<=this.alder){
             kontingentBetaling=1200;
             }
-
     return kontingentBetaling;
 }
 }
