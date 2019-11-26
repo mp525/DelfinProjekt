@@ -12,12 +12,12 @@ public class MedlemTest {
     public MedlemTest() {
     }
     
-    @Before
+ 
     public void setUp() {
         
     }
 
-    @Test
+    
     public void testKontingentBetaling() {
         Medlem m = new Medlem(16,"Butterfly","John",true);        
         int expResult = 1000;
