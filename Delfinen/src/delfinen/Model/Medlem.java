@@ -14,9 +14,28 @@ public class Medlem {
         this.aktiv = aktiv;
         this.kontingentBetaling = kontingentBetaling();
         this.navn = navn;
+        this.aktiv = aktiv;
     }
     
     
-    
+    public int kontingentBetaling(){
+        if(this.aktiv=false){
+            kontingentBetaling=500;
+            return kontingentBetaling;
+        }
+        
+                
+        else if(this.alder<18){
+            kontingentBetaling=1000;
+        }
+        else if(18<=this.alder && 60>this.alder){
+            kontingentBetaling=1600; 
+        }
+    else if(60<=this.alder){
+            kontingentBetaling=1200;
+            }
+
+    return kontingentBetaling;
+}
 }
 
