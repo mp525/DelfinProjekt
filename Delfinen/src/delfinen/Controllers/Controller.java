@@ -1,16 +1,19 @@
 package delfinen.Controllers;
 
+import delfinen.DataMapper.DataMapperMedlem;
+import delfinen.Model.Medlem;
 import static delfinen.View.MainMenu.visFormandMenu;
 import static delfinen.View.MainMenu.visHovedMenu;
 import static delfinen.View.MainMenu.visKasserMenu;
 import static delfinen.View.MainMenu.visTraenerMenu;
+import java.sql.SQLException;
 import java.util.Scanner;
 
 public class Controller {
 
     private static Scanner scan = new Scanner(System.in);
 
-    public static void runProgram() {
+    public static void runProgram() throws SQLException, ClassNotFoundException {
         boolean quit = false;
         while (quit == false) {
             visHovedMenu();
@@ -41,7 +44,7 @@ public class Controller {
         }
     }
     
-    public static void runDirectorProgram() {
+    public static void runDirectorProgram() throws SQLException, ClassNotFoundException {
         boolean quit = false;
         while(quit == false) {
             visFormandMenu();
@@ -49,6 +52,10 @@ public class Controller {
             
             switch(brugerInput) {
                 case "1":
+                    
+                    
+                    //Medlem medlem = new Medlem();
+                    //DataMapper.medlemInsert(medlem);
                     break;
                 case "2":
                     break;
@@ -79,6 +86,8 @@ public class Controller {
                 case "2":
                     break;
                 case "3":
+                    break;
+                case "4":
                     quit = true;
                     System.out.println("Programmet er lukket ned.");
                     break;
