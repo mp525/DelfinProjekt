@@ -1,10 +1,14 @@
 package delfinen;
 
 import delfinen.Controllers.Controller;
+import delfinen.DataMapper.DataMapper;
+import delfinen.Model.Medlem;
+import java.sql.SQLException;
 
 
 public class DelfinenMain {
-    public static void main(String[] args) {
+    //int alder, String aktivitetsForm, String navn, boolean aktiv) {
+    public static void main(String[] args) throws SQLException, ClassNotFoundException {
         Controller.runProgram();
         
     }
