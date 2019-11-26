@@ -1,6 +1,7 @@
 
 package delfinen.DataMapper;
 
+<<<<<<< HEAD
 import delfinen.Model.Medlem;
 import delfinen.Util.DBConnector;
 import java.sql.Connection;
@@ -31,4 +32,11 @@ public class DataMapperKonkurrence {
         pstmt.close();
         myConnector.close();
     }
+=======
+
+public class DataMapperKonkurrence {
+
+
+
+>>>>>>> 647b1bdcfef99be9987f377b45533fd42c73d8d6
 }
