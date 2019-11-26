@@ -1,7 +1,7 @@
 package delfinen;
 
 import delfinen.Controllers.Controller;
-import delfinen.DataMapper.DataMapper;
+import delfinen.DataMapper.DataMapperMedlem;
 import delfinen.Model.Medlem;
 import java.sql.SQLException;
 

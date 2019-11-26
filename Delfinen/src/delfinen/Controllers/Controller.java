@@ -1,6 +1,6 @@
 package delfinen.Controllers;
 
-import delfinen.DataMapper.DataMapper;
+import delfinen.DataMapper.DataMapperMedlem;
 import delfinen.Model.Medlem;
 import static delfinen.View.MainMenu.visFormandMenu;
 import static delfinen.View.MainMenu.visHovedMenu;
@@ -13,7 +13,7 @@ public class Controller {
 
     private static Scanner scan = new Scanner(System.in);
 
-    public static void runProgram() {
+    public static void runProgram() throws SQLException, ClassNotFoundException {
         boolean quit = false;
         while (quit == false) {
             visHovedMenu();

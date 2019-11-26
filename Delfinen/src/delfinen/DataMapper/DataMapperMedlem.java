@@ -7,7 +7,7 @@ import java.sql.PreparedStatement;
 import java.sql.SQLException;
 
 
-public class DataMapper {
+public class DataMapperMedlem {
     public static void medlemInsert(Medlem medlem) throws SQLException, ClassNotFoundException {
         Connection myConnector = null;
         PreparedStatement pstmt = null;
