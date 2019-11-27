@@ -1,5 +1,7 @@
 package delfinen.Model;
 
+import java.util.Scanner;
+
 public class Medlem {
 
     private int alder;
@@ -15,6 +17,40 @@ public class Medlem {
         this.kontingentBetaling = kontingentBetaling();
         this.navn = navn;
         this.aktiv = aktiv;
+    }
+
+    public static Medlem makeMedlem() {
+
+        Scanner sc = new Scanner(System.in);
+
+        System.out.println("Indtast navn for nyt medlem: ");
+        String navn1 = sc.nextLine();
+        System.out.println("Indtast alder for nyt medlem: ");
+        int ald = sc.nextInt();
+        sc.nextLine();
+        System.out.println("Indtast disciplin for nyt medlem: ");
+        String akForm = sc.nextLine();
+
+        boolean answered = false;
+        boolean aktiv = false;
+        System.out.println("Er medlemmet aktiv? y/n");
+        while (!answered) {
+
+            String answer = sc.nextLine();
+            if(answer.equals("y")) {
+                aktiv = true;
+                answered = true;
+            } else if(answer.equals("n")) {
+                aktiv = false;
+                answered = true;
+            } else {
+                System.out.println("Forkert input. Er medlemmet aktiv? y/n");
+            }
+            
+        }
+
+        Medlem medlem = new Medlem(ald, akForm, navn1, aktiv);
+        return medlem;
     }
 
     public int getAlder() {
@@ -71,5 +107,4 @@ public class Medlem {
 
         return kontingentBetaling;
     }
-        }                        
-
+}

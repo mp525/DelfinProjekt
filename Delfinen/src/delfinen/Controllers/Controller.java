@@ -52,21 +52,24 @@ public class Controller {
             
             switch(brugerInput) {
                 case "1":
-                    
-                    
-                    //Medlem medlem = new Medlem();
-                    //DataMapper.medlemInsert(medlem);
+                    Medlem medlem = Medlem.makeMedlem();
+                    DataMapperMedlem.medlemInsert(medlem);
                     break;
+                    
                 case "2":
                     break;
+                    
                 case "3":
                     break;
+                    
                 case "4":
                     break;
+                    
                 case "5":
                     quit = true;
                     System.out.println("Programmet er lukket ned.");
                     break;
+                    
                 default: {
                     System.out.println("Noget gik galt... Systemet gik ned.");
                 }
