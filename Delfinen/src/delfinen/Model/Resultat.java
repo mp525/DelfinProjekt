@@ -3,6 +3,7 @@ package delfinen.Model;
 import delfinen.DataMapper.DataMapperResultat;
 import delfinen.ResultatI.ResultatI;
 import java.sql.SQLException;
+import java.util.Scanner;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
@@ -20,6 +21,28 @@ public class Resultat implements ResultatI{
         this.medlemNavn = medlemNavn;
         this.diciplin = diciplin;
         this.længde = længde;
+    }
+    public static Resultat makeResultat(){
+        Resultat resultat = null;
+        Scanner scan = new Scanner(System.in);
+        boolean isOn = true;
+        while(isOn){ //String tid, String dato, String medlemNavn, String diciplin, int længde) {
+                        System.out.println("Navnet på medlemmet du vil opdatere?:");
+                        String navn = scan.nextLine();
+                        System.out.println("Hvilken disciplin?:");
+                        String disciplin = scan.nextLine();
+                        System.out.println("Tast længde svømmet:");
+                        int længde = scan.nextInt();
+                        scan.nextLine();
+                        System.out.println("På hvilken tid?:");
+                        String tid = scan.nextLine();
+                        System.out.println("Skriv dato;");
+                        String dato = scan.nextLine();
+                        isOn = false;
+                        resultat = new Resultat(tid, dato, navn, disciplin, længde);
+                    }
+        
+        return resultat;
     }
 
     public String getTid() {
