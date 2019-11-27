@@ -1,9 +1,13 @@
 package delfinen.Controllers;
 
+import static delfinen.DataMapper.DataMapperKonkurrence.konkurrenceInsert;
 import delfinen.DataMapper.DataMapperMedlem;
 import delfinen.DataMapper.DataMapperResultat;
+import delfinen.Model.KonkurrenceResultat;
 import delfinen.Model.Medlem;
+
 import delfinen.Model.Resultat;
+
 import delfinen.ResultatI.ResultatI;
 import static delfinen.View.MainMenu.visFormandMenu;
 import static delfinen.View.MainMenu.visHovedMenu;
@@ -118,6 +122,10 @@ public class Controller {
                     resultat.gemIDB();
                     break;
                 case "3":
+                    //KonkurrenceNavn, Placering, Tid, Navn
+                    ResultatI k=KonkurrenceResultat.makekonkurrence();
+                    k.gemIDB();
+                    System.out.println("Konkurrence resultat er gemt!");
                     break;
                 case "4":
                     break;

@@ -4,6 +4,7 @@ import delfinen.DataMapper.DataMapperKonkurrence;
 import delfinen.DataMapper.DataMapperResultat;
 import delfinen.ResultatI.ResultatI;
 import java.sql.SQLException;
+import java.util.Scanner;
 
 
 public class KonkurrenceResultat implements ResultatI{
@@ -29,7 +30,27 @@ public class KonkurrenceResultat implements ResultatI{
             System.out.println("ClassNotFoundException");
         }
     }
-
+    public static KonkurrenceResultat makekonkurrence(){
+        Scanner s = new Scanner(System.in);
+                System.out.println("skriv konkurrencenavn");
+                String konkurrenceNavn;
+                konkurrenceNavn=s.nextLine();
+                System.out.println("skriv placering");
+                int placering;
+                placering=s.nextInt();
+                s.nextLine();
+                System.out.println("skriv tid som for eksempel 21:16, hvor 21 er sekunder og 16 er milisekunder");
+                String tid;
+                tid=s.nextLine();
+                String navn;
+                System.out.println("Skriv navn");
+                navn=s.nextLine();
+                KonkurrenceResultat k = new KonkurrenceResultat(konkurrenceNavn,placering,tid,navn);
+                    
+        
+        return k;
+        
+    }
     public String getKonkurrence() {
         return konkurrence;
     }
