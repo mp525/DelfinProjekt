@@ -10,7 +10,7 @@ public class DBConnector {
             Connection connector = null;
             String url = "jdbc:mysql://localhost:3306/delfinen?serverTimeZone=UTC&allowPublicKeyRetrieval=true&useSSL=false";
             String user = "root";
-            String password = "Matti12345h";
+            String password = "cph39178";
             Class.forName("com.mysql.cj.jdbc.Driver");
             connector = DriverManager.getConnection(url, user, password);
             return connector;
