@@ -66,9 +66,11 @@ public class Controller {
                     break;
                     
                 case "3":
+                    DataMapperMedlem.medlemDelete();
                     break;
                     
                 case "4":
+                    DataMapperMedlem.medlemListe();
                     break;
                     
                 case "5":
