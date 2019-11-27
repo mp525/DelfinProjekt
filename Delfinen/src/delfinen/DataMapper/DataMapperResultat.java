@@ -59,8 +59,6 @@ public class DataMapperResultat {
         resultSet.close();
         myConnector.close();
 
-
-        
     }
 
 }

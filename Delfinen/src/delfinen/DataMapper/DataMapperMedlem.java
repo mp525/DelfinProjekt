@@ -9,18 +9,19 @@ import java.sql.SQLException;
 
 
 public class DataMapperMedlem {
-    public static void medlemInsert(KonkurrenceResultat konkurrence) throws SQLException, ClassNotFoundException {
+    public static void medlemInsert(Medlem medlem) throws SQLException, ClassNotFoundException {
         Connection myConnector = null;
         PreparedStatement pstmt = null;
 
         myConnector = DBConnector.getConnector();
 
-        String query = "insert into medlem (KonkurrenceNavn, Placering, Tid, Navn) values (?, ?, ?, ?);";
+        String query = "insert into medlem (Alder, AktivitetsForm, kontingentBetaling, Aktiv, Navn, Restance) values (?, ?, ?, ?);";
         pstmt = myConnector.prepareStatement(query);
-        pstmt.setString(1, konkurrence.getKonkurrence());
-        pstmt.setInt(2, konkurrence.getPlacering());
-        pstmt.setString(3, konkurrence.getTid());
-        pstmt.setString(4, konkurrence.getMedlemNavn());
+        pstmt.setInt(1, medlem.getAlder());
+        pstmt.setString(2, medlem.getAktivitetsForm());
+        pstmt.setInt(3, medlem.getKontingentBetaling());
+        pstmt.setBoolean(4, medlem.isAktiv());
+        pstmt.setString(4, medlem.getNavn());
         
         
         pstmt.execute();

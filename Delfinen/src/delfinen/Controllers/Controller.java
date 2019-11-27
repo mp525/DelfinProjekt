@@ -1,6 +1,7 @@
 package delfinen.Controllers;
 
 import delfinen.DataMapper.DataMapperMedlem;
+import delfinen.DataMapper.DataMapperResultat;
 import delfinen.Model.Medlem;
 import static delfinen.View.MainMenu.visFormandMenu;
 import static delfinen.View.MainMenu.visHovedMenu;
@@ -54,8 +55,7 @@ public class Controller {
                 case "1":
                     
                     
-                    //Medlem medlem = new Medlem();
-                    //DataMapper.medlemInsert(medlem);
+                    
                     break;
                 case "2":
                     break;
@@ -98,22 +98,30 @@ public class Controller {
         }
     }
     
-    public static void runTrainerProgram() {
+    public static void runTrainerProgram() throws ClassNotFoundException, SQLException {
         boolean quit = false;
         while(quit == false) {
             visTraenerMenu();
             String brugerInput = scan.nextLine();
-            
+            boolean isOn = true;
             switch(brugerInput) {
                 case "1":
                     break;
                 case "2":
+                    while(isOn){
+                        System.out.println("Navnet på medlemmet du vil opdatere?:");
+                        String navn = scan.nextLine();
+                        System.out.println("Hvilken disciplin?:");
+                        String disciplin = scan.nextLine();
+                        System.out.println("");
+                    }
                     break;
                 case "3":
                     break;
                 case "4":
                     break;
                 case "5":
+                    DataMapperResultat.visResultater();
                     break;
                 case "6":
                     break;
