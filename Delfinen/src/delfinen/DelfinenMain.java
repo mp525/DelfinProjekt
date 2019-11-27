@@ -3,6 +3,7 @@ package delfinen;
 import delfinen.Controllers.Controller;
 import delfinen.DataMapper.DataMapperKonkurrence;
 import delfinen.DataMapper.DataMapperMedlem;
+import delfinen.DataMapper.DataMapperRestance;
 import delfinen.DataMapper.DataMapperResultat;
 import delfinen.Model.KonkurrenceResultat;
 import delfinen.Model.Medlem;
@@ -13,6 +14,7 @@ import java.sql.SQLException;
 
 public class DelfinenMain {
     public static void main(String[] args) throws SQLException, ClassNotFoundException {
+        //DataMapperRestance.visRestancer();
         //DataMapperResultat.visResultater();
         //String konkurrence, int placering, String tid, String medlemNavn) {
         //KonkurrenceResultat kr = new KonkurrenceResultat("NSJ cup", 1, "10:20", "Timmy");
