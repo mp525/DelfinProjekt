@@ -27,7 +27,7 @@ public class MedlemTest {
         int expResult = 1000;
         int result = m.kontingentBetaling();
         assertEquals(expResult, result);
-        System.out.println("kontingentBetaling expected "+expResult+". Kontingent var "+result);
+        System.out.println("kontingentBetaling expected " + expResult + ". Kontingent var " + result);
     }
     
 }
