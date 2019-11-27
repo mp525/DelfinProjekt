@@ -5,7 +5,6 @@ import delfinen.DataMapper.DataMapperMedlem;
 import delfinen.DataMapper.DataMapperResultat;
 import delfinen.Model.KonkurrenceResultat;
 import delfinen.Model.Medlem;
-
 import delfinen.Model.Resultat;
 
 import delfinen.ResultatI.ResultatI;
