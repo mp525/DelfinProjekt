@@ -21,5 +21,37 @@ public class KonkurrenceResultat implements ResultatI{
         
     }
 
+    public String getKonkurrence() {
+        return konkurrence;
+    }
+
+    public void setKonkurrence(String konkurrence) {
+        this.konkurrence = konkurrence;
+    }
+
+    public int getPlacering() {
+        return placering;
+    }
+
+    public void setPlacering(int placering) {
+        this.placering = placering;
+    }
+
+    public double getTid() {
+        return tid;
+    }
+
+    public void setTid(double tid) {
+        this.tid = tid;
+    }
+
+    public String getMedlemNavn() {
+        return medlemNavn;
+    }
+
+    public void setMedlemNavn(String medlemNavn) {
+        this.medlemNavn = medlemNavn;
+    }
+
     
 }
