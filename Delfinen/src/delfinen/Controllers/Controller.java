@@ -3,6 +3,8 @@ package delfinen.Controllers;
 import delfinen.DataMapper.DataMapperMedlem;
 import delfinen.DataMapper.DataMapperResultat;
 import delfinen.Model.Medlem;
+import delfinen.Model.Resultat;
+import delfinen.ResultatI.ResultatI;
 import static delfinen.View.MainMenu.visFormandMenu;
 import static delfinen.View.MainMenu.visHovedMenu;
 import static delfinen.View.MainMenu.visKasserMenu;
@@ -112,13 +114,8 @@ public class Controller {
                 case "1":
                     break;
                 case "2":
-                    while(isOn){
-                        System.out.println("Navnet på medlemmet du vil opdatere?:");
-                        String navn = scan.nextLine();
-                        System.out.println("Hvilken disciplin?:");
-                        String disciplin = scan.nextLine();
-                        System.out.println("");
-                    }
+                    ResultatI resultat = Resultat.makeResultat();
+                    resultat.gemIDB();
                     break;
                 case "3":
                     break;
