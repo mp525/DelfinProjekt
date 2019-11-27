@@ -117,6 +117,7 @@ public class Controller {
             boolean isOn = true;
             switch(brugerInput) {
                 case "1":
+                    DataMapperMedlem.medlemListe();
                     break;
                 case "2":
                     ResultatI resultat = Resultat.makeResultat();
