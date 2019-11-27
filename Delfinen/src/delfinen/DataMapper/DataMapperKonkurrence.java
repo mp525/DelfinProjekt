@@ -25,7 +25,7 @@ public class DataMapperKonkurrence {
         
         pstmt.setString(1, konkurrence.getKonkurrence());
         pstmt.setInt(2, konkurrence.getPlacering());
-        pstmt.setDouble(3, konkurrence.getTid());
+        pstmt.setString(3, konkurrence.getTid());
         pstmt.setString(4, konkurrence.getMedlemNavn());
         pstmt.execute();
 
