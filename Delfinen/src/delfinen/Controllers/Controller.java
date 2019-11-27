@@ -86,7 +86,7 @@ public class Controller {
         }
     }
     
-    public static void runCashierProgram() {
+    public static void runCashierProgram() throws ClassNotFoundException, SQLException {
         boolean quit = false;
         while(quit == false) {
             visKasserMenu();
@@ -94,6 +94,7 @@ public class Controller {
             
             switch(brugerInput) {
                 case "1":
+                    DataMapperMedlem.medlemListe();
                     break;
                 case "2":
                     break;
@@ -118,6 +119,7 @@ public class Controller {
             boolean isOn = true;
             switch(brugerInput) {
                 case "1":
+                    DataMapperMedlem.medlemListe();
                     break;
                 case "2":
                     ResultatI resultat = Resultat.makeResultat();
