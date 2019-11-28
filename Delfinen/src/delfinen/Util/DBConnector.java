@@ -13,7 +13,7 @@ public class DBConnector {
         url += "serverTimezone=UTC&allowPublicKeyRetrieaval=true&";
         url += "useSSL=false";
 
-        String password = "Matti12345h";
+        String password = "cph39178";
         String user = "root";
 
         try {
