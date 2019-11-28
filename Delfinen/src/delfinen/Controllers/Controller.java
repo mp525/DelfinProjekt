@@ -1,6 +1,7 @@
 package delfinen.Controllers;
 
 import static delfinen.DataMapper.DataMapperKonkurrence.konkurrenceInsert;
+import static delfinen.DataMapper.DataMapperKonkurrence.seKonkurrenceTabel;
 import delfinen.DataMapper.DataMapperMedlem;
 import delfinen.DataMapper.DataMapperResultat;
 import delfinen.Model.KonkurrenceResultat;
@@ -137,6 +138,7 @@ public class Controller {
                     DataMapperResultat.visResultater();
                     break;
                 case "6":
+                    seKonkurrenceTabel();
                     break;
                 case "7":
                     quit = true;

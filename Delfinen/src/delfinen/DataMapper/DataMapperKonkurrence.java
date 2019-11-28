@@ -7,7 +7,9 @@ import delfinen.Model.Medlem;
 import delfinen.Util.DBConnector;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.sql.Statement;
 
 /**
  *
@@ -31,5 +33,30 @@ public class DataMapperKonkurrence {
 
         pstmt.close();
         myConnector.close();
+    }
+    public static void seKonkurrenceTabel() throws ClassNotFoundException, SQLException{        
+        Connection myConnector = null;
+        Statement statement = null;
+        ResultSet resultSet = null;
+
+        myConnector = DBConnector.getConnector();
+
+        String query = "select * from delfinen.konkurrence";
+        statement = myConnector.createStatement();
+        resultSet = statement.executeQuery(query);
+        while (resultSet.next()) {
+            String konkurrenceNavn = resultSet.getString("konkurrenceNavn");
+            int placering = resultSet.getInt("Placering");
+            String tid = resultSet.getString("Tid");
+            String navn = resultSet.getString("Navn");
+            System.out.println("\nKonkurrenceNavn: " + konkurrenceNavn + "\nPlacering: " + placering + "\nTid: " + tid
+                    + "\nNavn: " + navn + "\n");
+        }
+
+        resultSet.close();
+        statement.close();
+        myConnector.close();
+
+
     }
 }
