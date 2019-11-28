@@ -21,7 +21,7 @@ public class DataMapperResultat {
         String query = "insert into resultater (Navn, Tid, Dato, Disciplin, Længde) values (?, ?, ?, ?, ?);";
         pstmt = myConnector.prepareStatement(query);
         pstmt.setString(1, resultat.getMedlemNavn());
-        pstmt.setString(2, resultat.getTid());
+        pstmt.setDouble(2, resultat.getTid());
         pstmt.setString(3, resultat.getDato());
         pstmt.setString(4, resultat.getDiciplin());
         pstmt.setInt(5, resultat.getLængde());
@@ -44,7 +44,7 @@ public class DataMapperResultat {
         resultSet = statement.executeQuery(query);
         while (resultSet.next()) {
             String navn = resultSet.getString("Navn");
-            String tid = resultSet.getString("Tid");
+            double tid = resultSet.getDouble("Tid");
             String dato = resultSet.getString("Dato");
             String disciplin = resultSet.getString("Disciplin");
             int længde = resultSet.getInt("Længde");

@@ -27,7 +27,7 @@ public class DataMapperKonkurrence {
         
         pstmt.setString(1, konkurrence.getKonkurrence());
         pstmt.setInt(2, konkurrence.getPlacering());
-        pstmt.setString(3, konkurrence.getTid());
+        pstmt.setDouble(3, konkurrence.getTid());
         pstmt.setString(4, konkurrence.getMedlemNavn());
         pstmt.execute();
 
@@ -47,7 +47,7 @@ public class DataMapperKonkurrence {
         while (resultSet.next()) {
             String konkurrenceNavn = resultSet.getString("konkurrenceNavn");
             int placering = resultSet.getInt("Placering");
-            String tid = resultSet.getString("Tid");
+            double tid = resultSet.getDouble("Tid");
             String navn = resultSet.getString("Navn");
             System.out.println("\nKonkurrenceNavn: " + konkurrenceNavn + "\nPlacering: " + placering + "\nTid: " + tid
                     + "\nNavn: " + navn + "\n");
