@@ -2,10 +2,10 @@ package delfinen.Controllers;
 
 import static delfinen.DataMapper.DataMapperKonkurrence.konkurrenceInsert;
 import delfinen.DataMapper.DataMapperMedlem;
+import delfinen.DataMapper.DataMapperRestance;
 import delfinen.DataMapper.DataMapperResultat;
 import delfinen.Model.KonkurrenceResultat;
 import delfinen.Model.Medlem;
-
 import delfinen.Model.Resultat;
 
 import delfinen.ResultatI.ResultatI;
@@ -95,13 +95,11 @@ public class Controller {
             
             switch(brugerInput) {
                 case "1":
-                    DataMapperMedlem.medlemListe();
+                    DataMapperRestance.visRestancer();
                     break;
                 case "2":
                     break;
                 case "3":
-                    break;
-                case "4":
                     quit = true;
                     System.out.println("Programmet er lukket ned.");
                     break;
@@ -127,8 +125,7 @@ public class Controller {
                     resultat.gemIDB();
                     break;
                 case "3":
-                    //KonkurrenceNavn, Placering, Tid, Navn
-                    ResultatI k=KonkurrenceResultat.makekonkurrence();
+                    ResultatI k = KonkurrenceResultat.makekonkurrence();
                     k.gemIDB();
                     System.out.println("Konkurrence resultat er gemt!");
                     break;
