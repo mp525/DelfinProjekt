@@ -8,8 +8,8 @@ import java.util.Scanner;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
+public class Resultat implements ResultatI {
 
-public class Resultat implements ResultatI{
     private String tid;
     private String dato;
     private String medlemNavn;
@@ -23,31 +23,42 @@ public class Resultat implements ResultatI{
         this.diciplin = diciplin;
         this.længde = længde;
     }
-    public static Resultat makeResultat() throws ClassNotFoundException, SQLException{
+
+    public static Resultat makeResultat() throws ClassNotFoundException, SQLException {
         DataMapperMedlem.medlemListe();
         Resultat resultat = null;
         Scanner scan = new Scanner(System.in);
         boolean isOn = true;
-        while(isOn){ //String tid, String dato, String medlemNavn, String diciplin, int længde) {
-                        System.out.println("Navnet på medlemmet du vil opdatere?:");
-                        String navn = scan.nextLine();
-                        //boolean exist = tjekMedlem();
-                        
-                        System.out.println("Hvilken disciplin?:");
-                        String disciplin = scan.nextLine();
-                        System.out.println("Tast længde svømmet:");
-                        int længde = scan.nextInt();
-                        scan.nextLine();
-                        System.out.println("På hvilken tid?:");
-                        String tid = scan.nextLine();
-                        System.out.println("Skriv dato;");
-                        String dato = scan.nextLine();
-                        isOn = false;
-                        resultat = new Resultat(tid, dato, navn, disciplin, længde);
-                    }
-        
-        return resultat;
-    }
+        while (isOn) {
+            boolean isOn2 = true;
+            String navn = "";
+            while (isOn2) {
+                System.out.println("Navnet på medlemmet du vil opdatere?:");
+                navn = scan.nextLine();
+                boolean exist = DataMapperMedlem.medlemTjek(navn);
+                if (exist == false) {
+                    System.out.println("Medlemmet existerer ikke. Opret medlem før der laves resultat på det.");
+                } else{
+                    isOn2 = false;
+                }
+            }
+                System.out.println("Hvilken disciplin?:");
+                String disciplin = scan.nextLine();
+                System.out.println("Tast længde svømmet:");
+                int længde = scan.nextInt();
+                scan.nextLine();
+                System.out.println("På hvilken tid?:");
+                String tid = scan.nextLine();
+                System.out.println("Skriv dato;");
+                String dato = scan.nextLine();
+                isOn = false;
+                resultat = new Resultat(tid, dato, navn, disciplin, længde);
+            }
+
+            return resultat;
+        }
+
+    
 
     public String getTid() {
         return tid;
@@ -88,7 +99,6 @@ public class Resultat implements ResultatI{
     public void setLængde(int længde) {
         this.længde = længde;
     }
-    
 
     @Override
     public void gemIDB() {
@@ -107,9 +117,5 @@ public class Resultat implements ResultatI{
         result = "Resultat for " + getMedlemNavn() + " i " + getDiciplin() + " {Længde: " + getLængde() + "m, Tid: " + getTid() + "s, Dato: " + getDato() + "}";
         return result;
     }
-    
-    
-    
-    
 
 }
