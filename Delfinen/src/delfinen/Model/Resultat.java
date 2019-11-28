@@ -8,15 +8,15 @@ import java.util.Scanner;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
-public class Resultat implements ResultatI {
+public class Resultat implements ResultatI{
+    private double tid;
 
-    private String tid;
     private String dato;
     private String medlemNavn;
     private String diciplin;
     private int længde;
 
-    public Resultat(String tid, String dato, String medlemNavn, String diciplin, int længde) {
+    public Resultat(double tid, String dato, String medlemNavn, String diciplin, int længde) {
         this.tid = tid;
         this.dato = dato;
         this.medlemNavn = medlemNavn;
@@ -48,7 +48,7 @@ public class Resultat implements ResultatI {
                 int længde = scan.nextInt();
                 scan.nextLine();
                 System.out.println("På hvilken tid?:");
-                String tid = scan.nextLine();
+                double tid = scan.nextDouble();
                 System.out.println("Skriv dato;");
                 String dato = scan.nextLine();
                 isOn = false;
@@ -60,11 +60,11 @@ public class Resultat implements ResultatI {
 
     
 
-    public String getTid() {
+    public double getTid() {
         return tid;
     }
 
-    public void setTid(String tid) {
+    public void setTid(double tid) {
         this.tid = tid;
     }
 
