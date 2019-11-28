@@ -4,16 +4,17 @@ import delfinen.DataMapper.DataMapperKonkurrence;
 import delfinen.DataMapper.DataMapperResultat;
 import delfinen.ResultatI.ResultatI;
 import java.sql.SQLException;
+import java.util.InputMismatchException;
 import java.util.Scanner;
 
 
 public class KonkurrenceResultat implements ResultatI{
     private String konkurrence;
     private int placering;
-    private String tid;
+    private double tid;
     private String medlemNavn;
 
-    public KonkurrenceResultat(String konkurrence, int placering, String tid, String medlemNavn) {
+    public KonkurrenceResultat(String konkurrence, int placering, double tid, String medlemNavn) {
         this.konkurrence = konkurrence;
         this.placering = placering;
         this.tid = tid;
@@ -31,23 +32,43 @@ public class KonkurrenceResultat implements ResultatI{
         }
     }
     public static KonkurrenceResultat makekonkurrence(){
+        KonkurrenceResultat k=null;
         Scanner s = new Scanner(System.in);
-                System.out.println("skriv konkurrencenavn");
-                String konkurrenceNavn;
+                
+                
+                System.out.println("Skriv konkurrence navn");
+                String konkurrenceNavn;               
                 konkurrenceNavn=s.nextLine();
                 System.out.println("skriv placering");
-                int placering;
+                int placering = 0;
+                
+                    
+                boolean isOn= true;
+               while (isOn==true){
+                   try{
+                  
                 placering=s.nextInt();
                 s.nextLine();
+                isOn= false;
+               }catch(InputMismatchException e){
+                        System.out.println("Input var ikke et tal");
+                        System.out.println("Skriv et tal");
+                        //placering = s.nextInt();
+                        s.nextLine();
+                        
+                        
+                        }
+               }
+                //s.nextLine();
                 System.out.println("skriv tid som for eksempel 21:16, hvor 21 er sekunder og 16 er milisekunder");
-                String tid;
-                tid=s.nextLine();
+                double tid;
+                tid=s.nextDouble();
                 String navn;
                 System.out.println("Skriv navn");
                 navn=s.nextLine();
-                KonkurrenceResultat k = new KonkurrenceResultat(konkurrenceNavn,placering,tid,navn);
+                 k = new KonkurrenceResultat(konkurrenceNavn,placering,tid,navn);
                     
-        
+                
         return k;
         
     }
@@ -67,11 +88,11 @@ public class KonkurrenceResultat implements ResultatI{
         this.placering = placering;
     }
 
-    public String getTid() {
+    public double getTid() {
         return tid;
     }
 
-    public void setTid(String tid) {
+    public void setTid(double tid) {
         this.tid = tid;
     }
 
