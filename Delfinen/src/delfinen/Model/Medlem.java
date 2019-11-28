@@ -107,4 +107,12 @@ public class Medlem {
 
         return kontingentBetaling;
     }
+
+    @Override
+    public String toString() {
+        String result;
+        result = "Medlemmets navn: " + getNavn() + ", Alder: " + getAlder() + ", Aktivitetsform: " + getAktivitetsForm() + ", Kontingent: " + getKontingentBetaling() + "kr";
+        return result;
+    }
+    
 }
