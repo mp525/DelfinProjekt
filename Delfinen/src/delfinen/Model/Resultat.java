@@ -1,5 +1,6 @@
 package delfinen.Model;
 
+import delfinen.DataMapper.DataMapperMedlem;
 import delfinen.DataMapper.DataMapperResultat;
 import delfinen.ResultatI.ResultatI;
 import java.sql.SQLException;
@@ -22,13 +23,16 @@ public class Resultat implements ResultatI{
         this.diciplin = diciplin;
         this.længde = længde;
     }
-    public static Resultat makeResultat(){
+    public static Resultat makeResultat() throws ClassNotFoundException, SQLException{
+        DataMapperMedlem.medlemListe();
         Resultat resultat = null;
         Scanner scan = new Scanner(System.in);
         boolean isOn = true;
         while(isOn){ //String tid, String dato, String medlemNavn, String diciplin, int længde) {
                         System.out.println("Navnet på medlemmet du vil opdatere?:");
                         String navn = scan.nextLine();
+                        //boolean exist = tjekMedlem();
+                        
                         System.out.println("Hvilken disciplin?:");
                         String disciplin = scan.nextLine();
                         System.out.println("Tast længde svømmet:");
