@@ -64,6 +64,7 @@ public class Controller {
                     break;
                     
                 case "2":
+                    DataMapperMedlem.medlemUpdate();
                     break;
                     
                 case "3":
