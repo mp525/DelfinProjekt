@@ -37,21 +37,6 @@ public class DataMapperMedlem {
     }
 
     public static void medlemUpdate() throws ClassNotFoundException, SQLException {
-        // http://www.mysqltutorial.org/mysql-update-data.aspx
-        /*
-        UPDATE employees 
-        SET 
-            lastname = 'Hill',
-            email = 'mary.hill@classicmodelcars.com'
-        WHERE
-            employeeNumber = 1056;
-        */
-        
-        //TODO:
-        //Identificer person
-        //vælg hvad der skal ændres
-        //Indtast ændringer
-        //Gem ændringer i database
         
         Connection myConnector = null;
         PreparedStatement pstmt = null;
@@ -142,7 +127,9 @@ public class DataMapperMedlem {
                         String stat = sc.nextLine();
                         //sc.nextLine();
                         boolean status = false;
+                        boolean isOn3 = true;
                         
+                        while(isOn3) {
                         if(stat.contains("a")) {
                             status = true;
                             
@@ -154,10 +141,9 @@ public class DataMapperMedlem {
 
                             pstmt.execute();
 
-                            //pstmt.close();
-                            //myConnector.close();
-
-                        System.out.println("Statusen for medlemmet er blevet ændret.");
+                            System.out.println("Statusen for medlemmet er blevet ændret.");
+                        
+                            isOn3 = false;
                             
                         } else if(stat.contains("p")) {
                             status = false;
@@ -170,13 +156,14 @@ public class DataMapperMedlem {
                         
                             pstmt.execute();
 
-                            //pstmt.close();
-                            //myConnector.close();
-
                             System.out.println("Statusen for medlemmet er blevet ændret.");
                             
+                            isOn3 = false;
+                            
                         } else {
-                            System.out.println("Forkert indtastning. Vælg igen.");
+                            System.out.println("Forkert indtastning. Tast a for aktiv eller p for passiv");
+                            stat = sc.nextLine();
+                        }
                         }
                         
                         break;

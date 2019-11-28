@@ -1,5 +1,6 @@
 package delfinen.Model;
 
+import delfinen.DataMapper.DataMapperMedlem;
 import java.util.Scanner;
 
 public class Medlem {
@@ -25,11 +26,14 @@ public class Medlem {
 
         System.out.println("Indtast navn for nyt medlem: ");
         String navn1 = sc.nextLine();
+        
         System.out.println("Indtast alder for nyt medlem: ");
-        int ald = sc.nextInt();
+        int ald = 0;
+        ald = sc.nextInt();
         sc.nextLine();
+        
         System.out.println("Indtast disciplin for nyt medlem: ");
-        String akForm = sc.nextLine();
+        String akForm = DataMapperMedlem.aktivitetsForm();
 
         boolean answered = false;
         boolean aktiv = false;
