@@ -9,6 +9,7 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.ArrayList;
+import java.util.InputMismatchException;
 import java.util.Scanner;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -89,10 +90,23 @@ public class DataMapperMedlem {
                 switch(brugerInput) {
                     case "1":
                         
+                        boolean isOn1 = true;
+                        int ald = 0;
+                        
+                        while(isOn1) {
                         System.out.println("Hvad er den nye alder?");
-                        int ald = sc.nextInt();
+                        
+                        try {
+                        ald = sc.nextInt();
                         sc.nextLine();
-            
+                        isOn1 = false;
+                        
+                        } catch(InputMismatchException e) {
+                            System.out.println("");
+                            sc.nextLine();
+                        }
+                        }
+                        
                         String query1 = "UPDATE medlemmer set Alder = (?) WHERE Navn = (?)";
 
                         pstmt = myConnector.prepareStatement(query1);
@@ -101,18 +115,14 @@ public class DataMapperMedlem {
 
                         pstmt.execute();
 
-                        pstmt.close();
-                        myConnector.close();
-
                         System.out.println("Alderen for medlemmet er blevet ændret.");
+                        
                         
                         break;
                         
                     case "2":
                         
-                        System.out.println("Hvad er den nye Aktivitetsform?");
-                        String akForm = sc.nextLine();
-                        sc.nextLine();
+                        String akForm = aktivitetsForm();
             
                         String query2 = "UPDATE medlemmer set AktivitetsForm = (?) WHERE Navn = (?)";
 
@@ -122,71 +132,79 @@ public class DataMapperMedlem {
 
                         pstmt.execute();
 
-                        pstmt.close();
-                        myConnector.close();
-
                         System.out.println("Aktivitetsformen for medlemmet er blevet ændret.");
                         
                         break;
                         
                     case "3":
                         
-                        System.out.println("Hvad er den nye kontingentbetaling?");
-                        int konBet = sc.nextInt();
-                        sc.nextLine();
-            
-                        String query3 = "UPDATE medlemmer set kontingentBetaling = (?) WHERE Navn = (?)";
+                        System.out.println("Hvad er den nye status for aktiv/passivt medlemsskab? a/p");
+                        String stat = sc.nextLine();
+                        //sc.nextLine();
+                        boolean status = false;
+                        
+                        if(stat.contains("a")) {
+                            status = true;
+                            
+                            String query3 = "UPDATE medlemmer set Aktiv = (?) WHERE Navn = (?)";
 
-                        pstmt = myConnector.prepareStatement(query3);
-                        pstmt.setInt(1, konBet);
-                        pstmt.setString(2, navn);
+                            pstmt = myConnector.prepareStatement(query3);
+                            pstmt.setBoolean(1, status);
+                            pstmt.setString(2, navn);
 
-                        pstmt.execute();
+                            pstmt.execute();
 
-                        pstmt.close();
-                        myConnector.close();
+                            //pstmt.close();
+                            //myConnector.close();
 
-                        System.out.println("Kontingentbetalingen for medlemmet er blevet ændret.");
+                        System.out.println("Statusen for medlemmet er blevet ændret.");
+                            
+                        } else if(stat.contains("p")) {
+                            status = false;
+                            
+                            String query3 = "UPDATE medlemmer set Aktiv = (?) WHERE Navn = (?)";
+
+                            pstmt = myConnector.prepareStatement(query3);
+                            pstmt.setBoolean(1, status);
+                            pstmt.setString(2, navn);
+                        
+                            pstmt.execute();
+
+                            //pstmt.close();
+                            //myConnector.close();
+
+                            System.out.println("Statusen for medlemmet er blevet ændret.");
+                            
+                        } else {
+                            System.out.println("Forkert indtastning. Vælg igen.");
+                        }
                         
                         break;
                         
                     case "4":
                         
-                        System.out.println("Hvad er den nye status for aktiv/passivt medlemsskab? a/p");
-                        String stat = sc.nextLine();
-                        sc.nextLine();
-                        boolean status = false;
-                        
-                        if(stat.contains("a")) {
-                            status = true;
-                        } else if(stat.contains("p")) {
-                            status = false;
-                        } else {
-                            System.out.println("Forkert indtastning.");
-                        }
+                        System.out.println("Hvad er det nye navn for medlemmet?");
+                        String nyNavn = sc.nextLine();
+                        //sc.nextLine();
             
-                        String query = "UPDATE medlemmer set Aktiv = (?) WHERE Navn = (?)";
+                        String query4 = "UPDATE medlemmer set Navn = (?) WHERE Navn = (?)";
 
-                        pstmt = myConnector.prepareStatement(query);
-                        pstmt.setBoolean(1, status);
+                        pstmt = myConnector.prepareStatement(query4);
+                        pstmt.setString(1, nyNavn);
                         pstmt.setString(2, navn);
 
                         pstmt.execute();
+                        
+                        navn = nyNavn;
 
-                        pstmt.close();
-                        myConnector.close();
+                        //pstmt.close();
+                        //myConnector.close();
 
-                        System.out.println("Statusen for medlemmet er blevet ændret.");
+                        System.out.println("Navnet for medlemmet er blevet ændret.");
                         
                         break;
                         
                     case "5":
-                        
-                        
-                        
-                        break;
-                        
-                    case "6":
                         quit = true;
                         System.out.println("Redigering er færdig.");
                         break;
@@ -282,14 +300,58 @@ public class DataMapperMedlem {
     }
     
     public static void tekst() {
-        System.out.println("Hvilket felt skal ændres?");
+        System.out.println("");
+        System.out.println("\t\tHvilket felt skal ændres?");
         System.out.println("");
         System.out.println("1) Alder");
         System.out.println("2) Aktivitetsform");
-        System.out.println("3) Kontingentbetaling");
-        System.out.println("4) Aktiv/passiv medlemsskab");
-        System.out.println("5) Navn");
-        System.out.println("6) Afslut redigering af medlem");
+        System.out.println("3) Aktiv/passiv medlemsskab");
+        System.out.println("4) Navn");
+        System.out.println("5) Afslut redigering af medlem");
+    }
+    
+    public static String aktivitetsForm() {
+        boolean quit = false;
+        Scanner scan = new Scanner(System.in);
+        String aktivitet = "";
+        
+        while(quit == false) {
+            System.out.println("Hvad er den nye Aktivitetsform?");
+            System.out.println("1) Butterfly");
+            System.out.println("2) Crawl");
+            System.out.println("3) Rygcrawl");
+            System.out.println("4) Brystsvoemning");
+            
+            String brugerInput = scan.nextLine();
+            
+            switch(brugerInput) {
+                case "1":
+                    aktivitet = "Butterfly";
+                    quit = true;
+                    break;
+                    
+                case "2":
+                    aktivitet = "Crawl";
+                    quit = true;
+                    break;
+                    
+                case "3":
+                    aktivitet = "Rygcrawl";
+                    quit = true;
+                    break;
+                    
+                case "4":
+                    aktivitet = "Brystsvoemning";
+                    quit = true;
+                    break;
+                    
+                default:
+                    System.out.println("Noget gik galt. Prøv igen.");
+                    System.out.println("");
+            }
+        }
+        
+        return aktivitet;
     }
 
 }
