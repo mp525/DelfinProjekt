@@ -107,10 +107,10 @@ public class DataMapperResultat {
 
                     switch (hold) {
                         case 1:
-                            query = "select r.Navn, r.Tid, r.Disciplin, m.alder from resultater as r join medlemmer as m on r.Navn = m.Navn where disciplin = \"" + disc + "\" and alder < 18";
+                            query = "select r.Navn, r.Tid, r.Disciplin, m.alder from resultater as r join medlemmer as m on r.Navn = m.Navn where disciplin = \"" + disc + "\" and alder < 18 order by tid asc";
                             break;
                         case 2:
-                            query = "select r.Navn, r.Tid, r.Disciplin, m.alder from resultater as r join medlemmer as m on r.Navn = m.Navn where disciplin = \"" + disc + "\" and alder >= 18";
+                            query = "select r.Navn, r.Tid, r.Disciplin, m.alder from resultater as r join medlemmer as m on r.Navn = m.Navn where disciplin = \"" + disc + "\" and alder >= 18 order by tid asc";
                             break;
                     }
                 } catch (InputMismatchException e) {
