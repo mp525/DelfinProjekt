@@ -1,6 +1,4 @@
 package delfinen.Util;
-//@Matti
-//@Mathias
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.SQLException;
@@ -8,7 +6,7 @@ import java.sql.SQLException;
 public class DBConnector {
     
     /*
-    @Vibeke
+    @Vibeke, @Mathias og @Matti
     */
 
     public static Connection getConnector() throws ClassNotFoundException, SQLException {
