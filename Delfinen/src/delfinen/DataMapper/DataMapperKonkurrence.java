@@ -22,13 +22,14 @@ public class DataMapperKonkurrence {
 
         myConnector = DBConnector.getConnector();
 
-        String query = "insert into konkurrence (KonkurrenceNavn, Placering, Tid, Navn) values (?, ?, ?, ?);";
+        String query = "insert into konkurrence (KonkurrenceNavn, Placering, Tid, Navn, Disciplin) values (?, ?, ?, ?, ?);";
         pstmt = myConnector.prepareStatement(query);
         
         pstmt.setString(1, konkurrence.getKonkurrence());
         pstmt.setInt(2, konkurrence.getPlacering());
         pstmt.setDouble(3, konkurrence.getTid());
         pstmt.setString(4, konkurrence.getMedlemNavn());
+        pstmt.setString(5, konkurrence.getDisciplin());
         pstmt.execute();
 
         pstmt.close();
@@ -49,8 +50,9 @@ public class DataMapperKonkurrence {
             int placering = resultSet.getInt("Placering");
             double tid = resultSet.getDouble("Tid");
             String navn = resultSet.getString("Navn");
+            String disciplin = resultSet.getString("Disciplin");
             System.out.println("\nKonkurrenceNavn: " + konkurrenceNavn + "\nPlacering: " + placering + "\nTid: " + tid
-                    + "\nNavn: " + navn + "\n");
+                    + "\nNavn: " + navn + "\nDisciplin: " + disciplin);
         }
 
         resultSet.close();

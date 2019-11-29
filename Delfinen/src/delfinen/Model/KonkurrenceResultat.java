@@ -1,6 +1,7 @@
 package delfinen.Model;
 
 import delfinen.DataMapper.DataMapperKonkurrence;
+import delfinen.DataMapper.DataMapperMedlem;
 import delfinen.DataMapper.DataMapperResultat;
 import delfinen.ResultatI.ResultatI;
 import java.sql.SQLException;
@@ -13,12 +14,14 @@ public class KonkurrenceResultat implements ResultatI{
     private int placering;
     private double tid;
     private String medlemNavn;
+    private String disciplin;
 
-    public KonkurrenceResultat(String konkurrence, int placering, double tid, String medlemNavn) {
+    public KonkurrenceResultat(String konkurrence, int placering, double tid, String medlemNavn, String disciplin) {
         this.konkurrence = konkurrence;
         this.placering = placering;
         this.tid = tid;
         this.medlemNavn = medlemNavn;
+        this.disciplin = disciplin;
     }
 
     @Override
@@ -63,10 +66,12 @@ public class KonkurrenceResultat implements ResultatI{
                 System.out.println("skriv tid som for eksempel 21:16, hvor 21 er sekunder og 16 er milisekunder");
                 double tid;
                 tid=s.nextDouble();
+                s.nextLine();
                 String navn;
                 System.out.println("Skriv navn");
                 navn=s.nextLine();
-                 k = new KonkurrenceResultat(konkurrenceNavn,placering,tid,navn);
+                String disciplin = DataMapperMedlem.aktivitetsForm();
+                 k = new KonkurrenceResultat(konkurrenceNavn,placering,tid,navn,disciplin);
                     
                 
         return k;
@@ -75,6 +80,15 @@ public class KonkurrenceResultat implements ResultatI{
     public String getKonkurrence() {
         return konkurrence;
     }
+
+    public String getDisciplin() {
+        return disciplin;
+    }
+
+    public void setDisciplin(String disciplin) {
+        this.disciplin = disciplin;
+    }
+    
 
     public void setKonkurrence(String konkurrence) {
         this.konkurrence = konkurrence;

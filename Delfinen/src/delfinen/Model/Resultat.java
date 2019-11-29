@@ -4,6 +4,7 @@ import delfinen.DataMapper.DataMapperMedlem;
 import delfinen.DataMapper.DataMapperResultat;
 import delfinen.ResultatI.ResultatI;
 import java.sql.SQLException;
+import java.util.InputMismatchException;
 import java.util.Scanner;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -42,13 +43,25 @@ public class Resultat implements ResultatI{
                     isOn2 = false;
                 }
             }
-                System.out.println("Hvilken disciplin?:");
-                String disciplin = scan.nextLine();
+                
+                String disciplin = DataMapperMedlem.aktivitetsForm();
                 System.out.println("Tast længde svømmet:");
                 int længde = scan.nextInt();
                 scan.nextLine();
-                System.out.println("På hvilken tid?:");
-                double tid = scan.nextDouble();
+                boolean isOn3 = true;
+                double tid = 0.0;
+                while(isOn3){
+                    try{
+                System.out.println("På hvilken tid? (Skriv sekund og milisekund adskilt med komma, (fx 10,45)):");
+                tid = scan.nextDouble();
+                scan.nextLine();
+                isOn3 = false;
+                    }
+                    catch(InputMismatchException e){
+                        System.out.println("Skriv sekund og milisekund adskilt med komma, (fx 10,45).");
+                        scan.nextLine();
+                    }
+                }
                 System.out.println("Skriv dato;");
                 String dato = scan.nextLine();
                 isOn = false;
