@@ -8,7 +8,10 @@ import java.sql.SQLException;
 import java.util.InputMismatchException;
 import java.util.Scanner;
 
-//@matti
+/*
+@Matti og @Mathias
+*/
+
 public class KonkurrenceResultat implements ResultatI{
     private String konkurrence;
     private int placering;

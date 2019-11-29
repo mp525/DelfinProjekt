@@ -10,6 +10,11 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 
 public class Resultat implements ResultatI{
+    
+    /*
+    @Mathias
+    */
+    
     private double tid;
 
     private String dato;

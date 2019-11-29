@@ -12,6 +12,10 @@ import java.util.InputMismatchException;
 import java.util.Scanner;
 
 public class DataMapperResultat {
+    
+    /*
+    @Mathias
+    */
 
     public static void resultatInsert(Resultat resultat) throws SQLException, ClassNotFoundException {
         Connection myConnector = null;

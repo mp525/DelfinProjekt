@@ -1,5 +1,4 @@
 package delfinen.Controllers;
-//@Matti
 import static delfinen.DataMapper.DataMapperKonkurrence.konkurrenceInsert;
 import static delfinen.DataMapper.DataMapperKonkurrence.seKonkurrenceTabel;
 import delfinen.DataMapper.DataMapperMedlem;
@@ -19,6 +18,10 @@ import java.util.InputMismatchException;
 import java.util.Scanner;
 
 public class Controller {
+    
+    /*
+    @Vibeke, @Mathias og @Matti
+    */
 
     private static Scanner scan = new Scanner(System.in);
 
@@ -88,7 +91,6 @@ public class Controller {
             }
         }
     }
-
     public static void runCashierProgram() throws ClassNotFoundException, SQLException {
         boolean quit = false;
         while (quit == false) {

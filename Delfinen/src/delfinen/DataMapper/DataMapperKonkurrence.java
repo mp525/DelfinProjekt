@@ -1,4 +1,3 @@
-//@matti
 package delfinen.DataMapper;
 
 
@@ -11,11 +10,12 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 
-/**
- *
- * @author vnord
- */
 public class DataMapperKonkurrence {
+    
+    /*
+    @Matti
+    */
+    
     public static void konkurrenceInsert(KonkurrenceResultat konkurrence) throws SQLException, ClassNotFoundException {
         Connection myConnector = null;
         PreparedStatement pstmt = null;
