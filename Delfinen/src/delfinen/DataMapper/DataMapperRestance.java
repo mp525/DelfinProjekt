@@ -1,3 +1,4 @@
+//@Author Mathias
 package delfinen.DataMapper;
 
 import delfinen.Model.Medlem;

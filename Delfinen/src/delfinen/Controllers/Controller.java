@@ -88,7 +88,6 @@ public class Controller {
             }
         }
     }
-
     public static void runCashierProgram() throws ClassNotFoundException, SQLException {
         boolean quit = false;
         while (quit == false) {
