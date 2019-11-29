@@ -1,4 +1,3 @@
-//@Author Mathias
 package delfinen.DataMapper;
 
 import delfinen.Model.Medlem;
@@ -13,6 +12,10 @@ import java.util.ArrayList;
 import java.util.Scanner;
 
 public class DataMapperRestance {
+    
+    /*
+    @Mathias
+    */
 
     public static void visRestancer() throws ClassNotFoundException, SQLException {
         ArrayList<Medlem> restancer = new ArrayList();

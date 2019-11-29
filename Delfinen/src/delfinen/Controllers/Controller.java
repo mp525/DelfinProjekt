@@ -1,6 +1,4 @@
 package delfinen.Controllers;
-//@Matti
-//@Mathias
 import static delfinen.DataMapper.DataMapperKonkurrence.konkurrenceInsert;
 import static delfinen.DataMapper.DataMapperKonkurrence.seKonkurrenceTabel;
 import delfinen.DataMapper.DataMapperMedlem;
@@ -20,6 +18,10 @@ import java.util.InputMismatchException;
 import java.util.Scanner;
 
 public class Controller {
+    
+    /*
+    @Vibeke, @Mathias og @Matti
+    */
 
     private static Scanner scan = new Scanner(System.in);
 

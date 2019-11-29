@@ -1,11 +1,13 @@
 package delfinen.Model;
-//@Matti
-//@Mathias
 import delfinen.DataMapper.DataMapperMedlem;
 import java.util.InputMismatchException;
 import java.util.Scanner;
 
 public class Medlem {
+    
+    /*
+    @Vibeke, @Mathias og @Matti
+    */
 
     private int alder;
     private String aktivitetsForm;
