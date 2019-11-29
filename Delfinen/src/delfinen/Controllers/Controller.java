@@ -19,6 +19,10 @@ import java.util.InputMismatchException;
 import java.util.Scanner;
 
 public class Controller {
+    
+    /*
+    @Vibeke
+    */
 
     private static Scanner scan = new Scanner(System.in);
 

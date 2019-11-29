@@ -1,6 +1,10 @@
 package delfinen.View;
 
 public class MainMenu {
+    
+    /*
+    @Vibeke
+    */
 
     public static void visHovedMenu() {
         System.out.println("");

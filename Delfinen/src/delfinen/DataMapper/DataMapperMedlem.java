@@ -16,6 +16,9 @@ import java.util.logging.Logger;
 
 public class DataMapperMedlem {
 
+    /*
+    @Vibeke
+    */
     public static void medlemInsert(Medlem medlem) throws SQLException, ClassNotFoundException {
         Connection myConnector = null;
         PreparedStatement pstmt = null;

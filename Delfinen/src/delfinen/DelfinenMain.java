@@ -13,6 +13,11 @@ import java.sql.SQLException;
 
 
 public class DelfinenMain {
+    
+    /*
+    @Vibeke
+    */
+    
     public static void main(String[] args) throws SQLException, ClassNotFoundException {
         
         Controller.runProgram();

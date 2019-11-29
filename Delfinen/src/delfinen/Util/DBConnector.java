@@ -5,6 +5,10 @@ import java.sql.DriverManager;
 import java.sql.SQLException;
 
 public class DBConnector {
+    
+    /*
+    @Vibeke
+    */
 
     public static Connection getConnector() throws ClassNotFoundException, SQLException {
         Connection connection = null;

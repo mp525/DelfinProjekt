@@ -5,6 +5,10 @@ import java.util.InputMismatchException;
 import java.util.Scanner;
 
 public class Medlem {
+    
+    /*
+    @Vibeke
+    */
 
     private int alder;
     private String aktivitetsForm;
