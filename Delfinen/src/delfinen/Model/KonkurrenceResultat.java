@@ -40,14 +40,16 @@ public class KonkurrenceResultat implements ResultatI{
                 String konkurrenceNavn;               
                 konkurrenceNavn=s.nextLine();
                 System.out.println("skriv placering");
-                int placering = 0;
+                int placering = -1;
                 
                     
                 boolean isOn= true;
+                
                while (isOn==true){
                    try{
                   
                 placering=s.nextInt();
+                
                 s.nextLine();
                 isOn= false;
                }catch(InputMismatchException e){
@@ -59,6 +61,11 @@ public class KonkurrenceResultat implements ResultatI{
                         
                         }
                }
+               while(placering<1){
+                   System.out.println("input var minus eller 0 som ikke er valid input");
+                   placering =s.nextInt();
+                   
+               }
                 //s.nextLine();
                 System.out.println("skriv tid som for eksempel 21:16, hvor 21 er sekunder og 16 er milisekunder");
                 double tid;
@@ -68,10 +75,11 @@ public class KonkurrenceResultat implements ResultatI{
                 navn=s.nextLine();
                  k = new KonkurrenceResultat(konkurrenceNavn,placering,tid,navn);
                     
-                
+                    
         return k;
         
     }
+ 
     public String getKonkurrence() {
         return konkurrence;
     }
