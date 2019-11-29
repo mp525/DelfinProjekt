@@ -1,5 +1,6 @@
 package delfinen.Controllers;
 //@Matti
+//@Mathias
 import static delfinen.DataMapper.DataMapperKonkurrence.konkurrenceInsert;
 import static delfinen.DataMapper.DataMapperKonkurrence.seKonkurrenceTabel;
 import delfinen.DataMapper.DataMapperMedlem;

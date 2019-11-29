@@ -11,10 +11,6 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 
-/**
- *
- * @author vnord
- */
 public class DataMapperKonkurrence {
     public static void konkurrenceInsert(KonkurrenceResultat konkurrence) throws SQLException, ClassNotFoundException {
         Connection myConnector = null;

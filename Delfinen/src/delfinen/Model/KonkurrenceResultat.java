@@ -9,6 +9,7 @@ import java.util.InputMismatchException;
 import java.util.Scanner;
 
 //@matti
+//@Mathias
 public class KonkurrenceResultat implements ResultatI{
     private String konkurrence;
     private int placering;
