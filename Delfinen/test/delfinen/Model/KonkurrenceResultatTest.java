@@ -22,7 +22,7 @@ public class KonkurrenceResultatTest {
     
     @Test
     public void testGetPlacering() {
-        KonkurrenceResultat instance = new KonkurrenceResultat("Mattemandens Cup",8,26,"Matti Hansen");
+        KonkurrenceResultat instance = new KonkurrenceResultat("Mattemandens Cup",8,26,"Matti Hansen", "Crawl");
 
         System.out.println("getPlacering");
         int expResult = 8;
@@ -33,7 +33,7 @@ public class KonkurrenceResultatTest {
 
     @Test
     public void testGetMedlemNavn() {
-        KonkurrenceResultat instance = new KonkurrenceResultat("Mattemandens Cup",8,26,"Matti Hansen");
+        KonkurrenceResultat instance = new KonkurrenceResultat("Mattemandens Cup",8,26,"Matti Hansen", "Butterfly");
 
         System.out.println("getMedlemNavn");
         String expResult = "Matti Hansen";

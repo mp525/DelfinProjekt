@@ -340,5 +340,39 @@ public class DataMapperMedlem {
         
         return aktivitet;
     }
+    public static boolean medlemTjek(String navn) throws ClassNotFoundException, SQLException {
+        Connection myConnector = null;
+        Scanner sc = new Scanner(System.in);
+        Statement statement = null;
+        ResultSet resultSet = null;
+
+        ArrayList<String> myArr = new ArrayList<>();
+
+        myConnector = DBConnector.getConnector();
+
+        String search = "select navn from medlemmer";
+
+        statement = myConnector.createStatement();
+        resultSet = statement.executeQuery(search);
+        while (resultSet.next()) {
+            String navne = resultSet.getString("Navn");
+            myArr.add(navne);
+        }
+        if(myArr.contains(navn)){
+            resultSet.close();
+        myConnector.close();
+           return true;
+        }
+        else{
+            resultSet.close();
+        myConnector.close();
+            return false;
+        }
+        
+        //pstmt.close();
+        //statement.close();
+        
+    }
+    
 
 }

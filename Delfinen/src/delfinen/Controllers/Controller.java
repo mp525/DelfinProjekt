@@ -159,6 +159,7 @@ public class Controller {
                     System.out.println("Konkurrence resultat er gemt!");
                     break;
                 case "4":
+                    DataMapperResultat.visTop5();
                     break;
                 case "5":
                     DataMapperResultat.visResultater();

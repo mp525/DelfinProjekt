@@ -12,7 +12,8 @@ public class DBConnector {
         String url = "jdbc:mysql://localhost:3306/delfinen?";
         url += "serverTimezone=UTC&allowPublicKeyRetrieaval=true&";
         url += "useSSL=false";
-        String password = "Matti12345h";
+        String password = "cph39178";
+
         String user = "root";
 
         try {
