@@ -1,5 +1,5 @@
 package delfinen.Model;
-
+//@Matti
 import delfinen.DataMapper.DataMapperMedlem;
 import java.util.InputMismatchException;
 import java.util.Scanner;
