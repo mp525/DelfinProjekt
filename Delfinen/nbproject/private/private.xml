@@ -7,10 +7,13 @@
             <file>file:/C:/Users/Mathias/Desktop/DAT/gitgit/DelfinProjekt/Delfinen/src/delfinen/Model/Resultat.java</file>
             <file>file:/C:/Users/Mathias/Desktop/DAT/gitgit/DelfinProjekt/Delfinen/src/delfinen/Controllers/Controller.java</file>
             <file>file:/C:/Users/Mathias/Desktop/DAT/gitgit/DelfinProjekt/Delfinen/src/delfinen/DataMapper/DataMapperResultat.java</file>
+            <file>file:/C:/Users/Mathias/Desktop/DAT/gitgit/DelfinProjekt/Delfinen/src/delfinen/Model/KonkurrenceResultat.java</file>
+            <file>file:/C:/Users/Mathias/Desktop/DAT/gitgit/DelfinProjekt/Delfinen/test/delfinen/Model/KonkurrenceResultatTest.java</file>
             <file>file:/C:/Users/Mathias/Desktop/DAT/gitgit/DelfinProjekt/Delfinen/src/delfinen/DelfinenMain.java</file>
             <file>file:/C:/Users/Mathias/Desktop/DAT/gitgit/DelfinProjekt/Delfinen/src/delfinen/Model/Medlem.java</file>
             <file>file:/C:/Users/Mathias/Desktop/DAT/gitgit/DelfinProjekt/Delfinen/src/delfinen/Util/DBConnector.java</file>
             <file>file:/C:/Users/Mathias/Desktop/DAT/gitgit/DelfinProjekt/Delfinen/src/delfinen/View/MainMenu.java</file>
+            <file>file:/C:/Users/Mathias/Desktop/DAT/gitgit/DelfinProjekt/Delfinen/src/delfinen/DataMapper/DataMapperKonkurrence.java</file>
         </group>
     </open-files>
 </project-private>

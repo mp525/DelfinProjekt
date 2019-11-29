@@ -87,7 +87,7 @@ public class DataMapperMedlem {
                         isOn1 = false;
                         
                         } catch(InputMismatchException e) {
-                            System.out.println("");
+                            System.out.println("Input var ikke et tal. Prøv igen");
                             sc.nextLine();
                         }
                         }
@@ -303,7 +303,7 @@ public class DataMapperMedlem {
         String aktivitet = "";
         
         while(quit == false) {
-            System.out.println("Hvad er den nye Aktivitetsform?");
+            System.out.println("Hvilken disciplin vil du indtaste?");
             System.out.println("1) Butterfly");
             System.out.println("2) Crawl");
             System.out.println("3) Rygcrawl");
