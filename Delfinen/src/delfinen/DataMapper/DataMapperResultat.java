@@ -1,3 +1,4 @@
+//@Mathias
 package delfinen.DataMapper;
 
 import delfinen.Model.Resultat;
