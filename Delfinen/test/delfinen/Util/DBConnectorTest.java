@@ -14,7 +14,7 @@ import static org.junit.Assert.*;
 
 /**
  *
- * @author John
+ * @author Matti
  */
 public class DBConnectorTest {
     
