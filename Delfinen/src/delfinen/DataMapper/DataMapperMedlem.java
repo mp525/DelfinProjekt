@@ -63,8 +63,13 @@ public class DataMapperMedlem {
         }
 
         //Får navn til søgning i arrayliste:
+        String exit = "0";
+        System.out.println("For at gå tilbage tast 0");
         System.out.println("Indtast det fulde navn på det medlem du vil ændre informationer på: ");
         String navn = sc.nextLine();
+        if (navn.equals(exit)){
+            return;
+        }
 
         //En switch til at opdatere information i databasen:
         if (myArr.contains(navn)) {
@@ -237,9 +242,13 @@ public class DataMapperMedlem {
             String navne = resultSet.getString("Navn");
             myArr.add(navne);
         }
-
+        String exit = "0";
+        System.out.println("For at gå tilbage tast 0");
         System.out.println("Indtast det fulde navn på det medlem du vil melde ud af klubben: ");
         String navn = sc.nextLine();
+        if (navn.equals(exit)){
+            return;
+        }
 
         if (myArr.contains(navn)) {
             String query = "DELETE FROM medlemmer WHERE Navn = (?)";

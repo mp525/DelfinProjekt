@@ -1,14 +1,14 @@
 package delfinen.Model;
+
 import delfinen.DataMapper.DataMapperMedlem;
 import java.util.InputMismatchException;
 import java.util.Scanner;
 
 public class Medlem {
-    
+
     /*
     @Vibeke, @Mathias og @Matti
-    */
-
+     */
     private int alder;
     private String aktivitetsForm;
     private int kontingentBetaling;
@@ -27,26 +27,30 @@ public class Medlem {
     public static Medlem makeMedlem() {
 
         Scanner sc = new Scanner(System.in);
-
+        System.out.println("For at gå tilbage tast 0");
+        String exit = "0";
         System.out.println("Indtast navn for nyt medlem: ");
         String navn1 = sc.nextLine();
-        
+        if (navn1.equals(exit)) {
+            return null;
+        }
+
         int ald = 0;
         boolean isOn = true;
-        while(isOn == true) {
+        while (isOn == true) {
             System.out.println("Indtast alder for nyt medlem: ");
-            
+
             try {
                 ald = sc.nextInt();
                 sc.nextLine();
                 isOn = false;
-                
+
             } catch (InputMismatchException e) {
                 System.out.println("Input var ikke et tal. Prøv igen.");
                 sc.nextLine();
             }
         }
-        
+
         System.out.println("Indtast disciplin for nyt medlem: ");
         String akForm = DataMapperMedlem.aktivitetsForm();
 
@@ -56,16 +60,16 @@ public class Medlem {
         while (!answered) {
 
             String answer = sc.nextLine();
-            if(answer.equals("y")) {
+            if (answer.equals("y")) {
                 aktiv = true;
                 answered = true;
-            } else if(answer.equals("n")) {
+            } else if (answer.equals("n")) {
                 aktiv = false;
                 answered = true;
             } else {
                 System.out.println("Forkert input. Er medlemmet aktiv? y/n");
             }
-            
+
         }
 
         Medlem medlem = new Medlem(ald, akForm, navn1, aktiv);
@@ -133,5 +137,5 @@ public class Medlem {
         result = "Medlemmets navn: " + getNavn() + ", Alder: " + getAlder() + ", Aktivitetsform: " + getAktivitetsForm() + ", Kontingent: " + getKontingentBetaling() + "kr";
         return result;
     }
-    
+
 }
