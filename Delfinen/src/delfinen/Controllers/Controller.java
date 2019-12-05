@@ -16,6 +16,7 @@ import static delfinen.View.MainMenu.visTraenerMenu;
 import java.sql.SQLException;
 import java.util.InputMismatchException;
 import java.util.Scanner;
+import makeTestData.TestDataMaker;
 
 public class Controller {
     
@@ -79,8 +80,12 @@ public class Controller {
                 case "4":
                     DataMapperMedlem.medlemListe();
                     break;
-
                 case "5":
+                    Medlem m=TestDataMaker.testDataMedlem();
+                    DataMapperMedlem.medlemInsert(m);
+                    System.out.println("Nyt test Medlem er lavet");
+                    break;
+                case "6":
                     quit = true;
                     System.out.println("Programmet er lukket ned.");
                     break;
@@ -169,7 +174,12 @@ public class Controller {
                 case "6":
                     seKonkurrenceTabel();
                     break;
-                case "7":
+                    case "7":
+                    ResultatI t = TestDataMaker.testDataMakekonkurrence();
+                    t.gemIDB();
+                    System.out.println("Konkurrence resultat er gemt!");
+                    break;
+                case "8":
                     quit = true;
                     System.out.println("Programmet er lukket ned.");
                     break;
