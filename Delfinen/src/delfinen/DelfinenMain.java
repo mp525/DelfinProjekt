@@ -11,17 +11,15 @@ import delfinen.Model.Resultat;
 import delfinen.ResultatI.ResultatI;
 import java.sql.SQLException;
 
-
 public class DelfinenMain {
-    
+
     /*
     @Vibeke og @Mathias
-    */
-    
+     */
     public static void main(String[] args) throws SQLException, ClassNotFoundException {
-        
+
         Controller.runProgram();
-        
+
     }
 
 }

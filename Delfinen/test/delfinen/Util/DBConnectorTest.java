@@ -17,10 +17,10 @@ import static org.junit.Assert.*;
  * @author Matti
  */
 public class DBConnectorTest {
-    
+
     public DBConnectorTest() {
     }
-    
+
     @Before
     public void setUp() {
     }
@@ -34,10 +34,10 @@ public class DBConnectorTest {
         Connection expResult = null;
         Connection result = DBConnector.getConnector();
         Statement st = result.createStatement();
-        String query="select * from delfinen.konkurrence";
+        String query = "select * from delfinen.konkurrence";
         ResultSet res = (ResultSet) st.executeQuery(query);
         System.out.println(res.getRow());
-        assertTrue(result!=null);
+        assertTrue(result != null);
     }
-    
+
 }

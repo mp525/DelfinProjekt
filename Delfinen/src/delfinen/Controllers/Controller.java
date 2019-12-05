@@ -126,8 +126,7 @@ public class Controller {
                             System.out.println("Venligst tast enten 1 eller 2.");
                             scan.nextLine();
 
-                        }
-                        catch (NullPointerException e){
+                        } catch (NullPointerException e) {
                             scan.nextLine();
                             isOn = false;
                         }
@@ -168,21 +167,19 @@ public class Controller {
                     DataMapperMedlem.medlemListe();
                     break;
                 case "2":
-                    try{
-                    ResultatI resultat = Resultat.makeResultat();
-                    resultat.gemIDB();
-                    }
-                    catch (NullPointerException e){
+                    try {
+                        ResultatI resultat = Resultat.makeResultat();
+                        resultat.gemIDB();
+                    } catch (NullPointerException e) {
                         break;
                     }
                     break;
                 case "3":
-                    try{
-                    ResultatI k = KonkurrenceResultat.makekonkurrence();
-                    k.gemIDB();
-                    System.out.println("Konkurrence resultat er gemt!");
-                    }
-                    catch(NullPointerException e){
+                    try {
+                        ResultatI k = KonkurrenceResultat.makekonkurrence();
+                        k.gemIDB();
+                        System.out.println("Konkurrence resultat er gemt!");
+                    } catch (NullPointerException e) {
                         break;
                     }
                     break;

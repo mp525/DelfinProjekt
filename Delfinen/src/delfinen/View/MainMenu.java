@@ -1,11 +1,10 @@
 package delfinen.View;
 
 public class MainMenu {
-    
+
     /*
     @Vibeke
-    */
-
+     */
     public static void visHovedMenu() {
         System.out.println("");
         System.out.println("\t\tHovedmenu:");
@@ -17,7 +16,7 @@ public class MainMenu {
         System.out.println("3) Træner");
         System.out.println("4) Afslut program");
     }
-    
+
     public static void visFormandMenu() {
         System.out.println("");
         System.out.println("\t\tVelkommen Formand");
@@ -30,7 +29,7 @@ public class MainMenu {
         System.out.println("4) Se medlemsliste");
         System.out.println("5) Tilbage til hovedmenu");
     }
-    
+
     public static void visKasserMenu() {
         System.out.println("");
         System.out.println("\t\tVelkommen Kassér");
@@ -41,7 +40,7 @@ public class MainMenu {
         System.out.println("2) Opdatér restance på medlemmer");
         System.out.println("3) Tilbage til hovedmenu");
     }
-    
+
     public static void visTraenerMenu() {
         System.out.println("");
         System.out.println("\t\tVelkommen Træner");

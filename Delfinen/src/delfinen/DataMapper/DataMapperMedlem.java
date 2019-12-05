@@ -18,7 +18,7 @@ public class DataMapperMedlem {
 
     /*
     @Vibeke
-    */
+     */
     public static void medlemInsert(Medlem medlem) throws SQLException, ClassNotFoundException {
         Connection myConnector = null;
         PreparedStatement pstmt = null;
@@ -40,7 +40,7 @@ public class DataMapperMedlem {
     }
 
     public static void medlemUpdate() throws ClassNotFoundException, SQLException {
-        
+
         Connection myConnector = null;
         PreparedStatement pstmt = null;
         Scanner sc = new Scanner(System.in);
@@ -55,7 +55,7 @@ public class DataMapperMedlem {
 
         statement = myConnector.createStatement();
         resultSet = statement.executeQuery(search);
-        
+
         //Laver en arrayliste der hurtigt kan søges igennem for navne i databasen:
         while (resultSet.next()) {
             String navne = resultSet.getString("Navn");
@@ -67,39 +67,39 @@ public class DataMapperMedlem {
         System.out.println("For at gå tilbage tast 0");
         System.out.println("Indtast det fulde navn på det medlem du vil ændre informationer på: ");
         String navn = sc.nextLine();
-        if (navn.equals(exit)){
+        if (navn.equals(exit)) {
             return;
         }
 
         //En switch til at opdatere information i databasen:
         if (myArr.contains(navn)) {
             boolean quit = false;
-            
-            while(quit == false) {
+
+            while (quit == false) {
                 tekst();
-                
+
                 String brugerInput = sc.nextLine();
-                
-                switch(brugerInput) {
+
+                switch (brugerInput) {
                     case "1":
-                        
+
                         boolean isOn1 = true;
                         int ald = 0;
-                        
-                        while(isOn1) {
-                        System.out.println("Hvad er den nye alder?");
-                        
-                        try {
-                        ald = sc.nextInt();
-                        sc.nextLine();
-                        isOn1 = false;
-                        
-                        } catch(InputMismatchException e) {
-                            System.out.println("Input var ikke et tal. Prøv igen");
-                            sc.nextLine();
+
+                        while (isOn1) {
+                            System.out.println("Hvad er den nye alder?");
+
+                            try {
+                                ald = sc.nextInt();
+                                sc.nextLine();
+                                isOn1 = false;
+
+                            } catch (InputMismatchException e) {
+                                System.out.println("Input var ikke et tal. Prøv igen");
+                                sc.nextLine();
+                            }
                         }
-                        }
-                        
+
                         String query1 = "UPDATE medlemmer set Alder = (?) WHERE Navn = (?)";
 
                         pstmt = myConnector.prepareStatement(query1);
@@ -109,14 +109,13 @@ public class DataMapperMedlem {
                         pstmt.execute();
 
                         System.out.println("Alderen for medlemmet er blevet ændret.");
-                        
-                        
+
                         break;
-                        
+
                     case "2":
-                        
+
                         String akForm = aktivitetsForm();
-            
+
                         String query2 = "UPDATE medlemmer set AktivitetsForm = (?) WHERE Navn = (?)";
 
                         pstmt = myConnector.prepareStatement(query2);
@@ -126,62 +125,62 @@ public class DataMapperMedlem {
                         pstmt.execute();
 
                         System.out.println("Aktivitetsformen for medlemmet er blevet ændret.");
-                        
+
                         break;
-                        
+
                     case "3":
-                        
+
                         System.out.println("Hvad er den nye status for aktiv/passivt medlemsskab? a/p");
                         String stat = sc.nextLine();
                         //sc.nextLine();
                         boolean status = false;
                         boolean isOn3 = true;
-                        
-                        while(isOn3) {
-                        if(stat.contains("a")) {
-                            status = true;
-                            
-                            String query3 = "UPDATE medlemmer set Aktiv = (?) WHERE Navn = (?)";
 
-                            pstmt = myConnector.prepareStatement(query3);
-                            pstmt.setBoolean(1, status);
-                            pstmt.setString(2, navn);
+                        while (isOn3) {
+                            if (stat.contains("a")) {
+                                status = true;
 
-                            pstmt.execute();
+                                String query3 = "UPDATE medlemmer set Aktiv = (?) WHERE Navn = (?)";
 
-                            System.out.println("Statusen for medlemmet er blevet ændret.");
-                        
-                            isOn3 = false;
-                            
-                        } else if(stat.contains("p")) {
-                            status = false;
-                            
-                            String query3 = "UPDATE medlemmer set Aktiv = (?) WHERE Navn = (?)";
+                                pstmt = myConnector.prepareStatement(query3);
+                                pstmt.setBoolean(1, status);
+                                pstmt.setString(2, navn);
 
-                            pstmt = myConnector.prepareStatement(query3);
-                            pstmt.setBoolean(1, status);
-                            pstmt.setString(2, navn);
-                        
-                            pstmt.execute();
+                                pstmt.execute();
 
-                            System.out.println("Statusen for medlemmet er blevet ændret.");
-                            
-                            isOn3 = false;
-                            
-                        } else {
-                            System.out.println("Forkert indtastning. Tast a for aktiv eller p for passiv");
-                            stat = sc.nextLine();
+                                System.out.println("Statusen for medlemmet er blevet ændret.");
+
+                                isOn3 = false;
+
+                            } else if (stat.contains("p")) {
+                                status = false;
+
+                                String query3 = "UPDATE medlemmer set Aktiv = (?) WHERE Navn = (?)";
+
+                                pstmt = myConnector.prepareStatement(query3);
+                                pstmt.setBoolean(1, status);
+                                pstmt.setString(2, navn);
+
+                                pstmt.execute();
+
+                                System.out.println("Statusen for medlemmet er blevet ændret.");
+
+                                isOn3 = false;
+
+                            } else {
+                                System.out.println("Forkert indtastning. Tast a for aktiv eller p for passiv");
+                                stat = sc.nextLine();
+                            }
                         }
-                        }
-                        
+
                         break;
-                        
+
                     case "4":
-                        
+
                         System.out.println("Hvad er det nye navn for medlemmet?");
                         String nyNavn = sc.nextLine();
                         //sc.nextLine();
-            
+
                         String query4 = "UPDATE medlemmer set Navn = (?) WHERE Navn = (?)";
 
                         pstmt = myConnector.prepareStatement(query4);
@@ -189,21 +188,20 @@ public class DataMapperMedlem {
                         pstmt.setString(2, navn);
 
                         pstmt.execute();
-                        
+
                         navn = nyNavn;
 
                         //pstmt.close();
                         //myConnector.close();
-
                         System.out.println("Navnet for medlemmet er blevet ændret.");
-                        
+
                         break;
-                        
+
                     case "5":
                         quit = true;
                         System.out.println("Redigering er færdig.");
                         break;
-                        
+
                     default: {
                         System.out.println("Noget gik galt. Kommandoen kunne ikke udføres.");
                     }
@@ -212,11 +210,11 @@ public class DataMapperMedlem {
 
             //pstmt.close();
             myConnector.close();
-            
+
         } else {
             System.out.println("Det valgte medlem eksisterer ikke i databasen.");
         }
-        
+
         //pstmt.close();
         //statement.close();
         resultSet.close();
@@ -246,7 +244,7 @@ public class DataMapperMedlem {
         System.out.println("For at gå tilbage tast 0");
         System.out.println("Indtast det fulde navn på det medlem du vil melde ud af klubben: ");
         String navn = sc.nextLine();
-        if (navn.equals(exit)){
+        if (navn.equals(exit)) {
             return;
         }
 
@@ -262,11 +260,11 @@ public class DataMapperMedlem {
             myConnector.close();
 
             System.out.println("Det valgte medlem er blevet slettet fra listen.");
-            
+
         } else {
             System.out.println("Det valgte medlem eksisterer ikke i databasen.");
         }
-        
+
         //pstmt.close();
         //statement.close();
         resultSet.close();
@@ -297,7 +295,7 @@ public class DataMapperMedlem {
         statement.close();
         myConnector.close();
     }
-    
+
     public static void tekst() {
         System.out.println("");
         System.out.println("\t\tHvilket felt skal ændres?");
@@ -308,50 +306,51 @@ public class DataMapperMedlem {
         System.out.println("4) Navn");
         System.out.println("5) Afslut redigering af medlem");
     }
-    
+
     public static String aktivitetsForm() {
         boolean quit = false;
         Scanner scan = new Scanner(System.in);
         String aktivitet = "";
-        
-        while(quit == false) {
+
+        while (quit == false) {
             System.out.println("Hvilken disciplin vil du indtaste?");
             System.out.println("1) Butterfly");
             System.out.println("2) Crawl");
             System.out.println("3) Rygcrawl");
             System.out.println("4) Brystsvoemning");
-            
+
             String brugerInput = scan.nextLine();
-            
-            switch(brugerInput) {
+
+            switch (brugerInput) {
                 case "1":
                     aktivitet = "Butterfly";
                     quit = true;
                     break;
-                    
+
                 case "2":
                     aktivitet = "Crawl";
                     quit = true;
                     break;
-                    
+
                 case "3":
                     aktivitet = "Rygcrawl";
                     quit = true;
                     break;
-                    
+
                 case "4":
                     aktivitet = "Brystsvoemning";
                     quit = true;
                     break;
-                    
+
                 default:
                     System.out.println("Noget gik galt. Prøv igen.");
                     System.out.println("");
             }
         }
-        
+
         return aktivitet;
     }
+
     public static boolean medlemTjek(String navn) throws ClassNotFoundException, SQLException {
         Connection myConnector = null;
         Scanner sc = new Scanner(System.in);
@@ -370,21 +369,18 @@ public class DataMapperMedlem {
             String navne = resultSet.getString("Navn");
             myArr.add(navne);
         }
-        if(myArr.contains(navn)){
+        if (myArr.contains(navn)) {
             resultSet.close();
-        myConnector.close();
-           return true;
-        }
-        else{
+            myConnector.close();
+            return true;
+        } else {
             resultSet.close();
-        myConnector.close();
+            myConnector.close();
             return false;
         }
-        
+
         //pstmt.close();
         //statement.close();
-        
     }
-    
 
 }

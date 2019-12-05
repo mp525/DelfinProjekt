@@ -15,10 +15,10 @@ import static org.junit.Assert.*;
  * @author Mathias
  */
 public class DataMapperMedlemTest {
-    
+
     public DataMapperMedlemTest() {
     }
-    
+
     @Before
     public void setUp() {
     }
@@ -30,7 +30,7 @@ public class DataMapperMedlemTest {
         boolean expResult = true;
         boolean result = DataMapperMedlem.medlemTjek(navn);
         assertEquals(expResult, result);
-        
+
     }
-    
+
 }

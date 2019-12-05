@@ -12,11 +12,10 @@ import java.util.ArrayList;
 import java.util.Scanner;
 
 public class DataMapperRestance {
-    
+
     /*
     @Mathias
-    */
-
+     */
     public static void visRestancer() throws ClassNotFoundException, SQLException {
         ArrayList<Medlem> restancer = new ArrayList();
         Connection myConnector = null;
@@ -86,6 +85,7 @@ public class DataMapperRestance {
         pstmt.close();
         myConnector.close();
     }
+
     public static void visUdenRestancer() throws ClassNotFoundException, SQLException {
         ArrayList<Medlem> restancer = new ArrayList();
         Connection myConnector = null;
