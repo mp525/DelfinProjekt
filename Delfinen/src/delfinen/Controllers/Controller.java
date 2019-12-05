@@ -1,4 +1,5 @@
 package delfinen.Controllers;
+
 import static delfinen.DataMapper.DataMapperKonkurrence.konkurrenceInsert;
 import static delfinen.DataMapper.DataMapperKonkurrence.seKonkurrenceTabel;
 import delfinen.DataMapper.DataMapperMedlem;
@@ -18,11 +19,10 @@ import java.util.InputMismatchException;
 import java.util.Scanner;
 
 public class Controller {
-    
+
     /*
     @Vibeke, @Mathias og @Matti
-    */
-
+     */
     private static Scanner scan = new Scanner(System.in);
 
     public static void runProgram() throws SQLException, ClassNotFoundException {
@@ -50,7 +50,7 @@ public class Controller {
                     break;
 
                 default: {
-                    System.out.println("Noget gik galt... Systemet gik ned.");
+                    System.out.println("Vælg venligst en af valgmulighederne.");
                 }
             }
         }
@@ -65,7 +65,11 @@ public class Controller {
             switch (brugerInput) {
                 case "1":
                     Medlem medlem = Medlem.makeMedlem();
-                    DataMapperMedlem.medlemInsert(medlem);
+                    try {
+                        DataMapperMedlem.medlemInsert(medlem);
+                    } catch (NullPointerException e) {
+                        break;
+                    }
                     break;
 
                 case "2":
@@ -86,11 +90,12 @@ public class Controller {
                     break;
 
                 default: {
-                    System.out.println("Noget gik galt... Systemet gik ned.");
+                    System.out.println("Vælg venligst en af valgmulighederne.");
                 }
             }
         }
     }
+
     public static void runCashierProgram() throws ClassNotFoundException, SQLException {
         boolean quit = false;
         while (quit == false) {
@@ -105,17 +110,26 @@ public class Controller {
                 case "2":
                     boolean isOn = true;
                     while (isOn) {
+
+                        System.out.println("For at gå tilbage tast 0");
                         System.out.println("For at tilføje restance på medlem tast 1.");
                         System.out.println("For at fjerne restance på medlem tast 2.");
                         int next = 0;
                         try {
                             next = scan.nextInt();
+                            if (next == 0) {
+                                throw new NullPointerException();
+                            }
                             scan.nextLine();
                             isOn = false;
                         } catch (InputMismatchException e) {
                             System.out.println("Venligst tast enten 1 eller 2.");
                             scan.nextLine();
 
+                        }
+                        catch (NullPointerException e){
+                            scan.nextLine();
+                            isOn = false;
                         }
 
                         switch (next) {
@@ -136,6 +150,8 @@ public class Controller {
                     quit = true;
                     System.out.println("Programmet er lukket ned.");
                     break;
+                default:
+                    System.out.println("Vælg venligst en af valgmulighederne.");
 
             }
         }
@@ -152,13 +168,23 @@ public class Controller {
                     DataMapperMedlem.medlemListe();
                     break;
                 case "2":
+                    try{
                     ResultatI resultat = Resultat.makeResultat();
                     resultat.gemIDB();
+                    }
+                    catch (NullPointerException e){
+                        break;
+                    }
                     break;
                 case "3":
+                    try{
                     ResultatI k = KonkurrenceResultat.makekonkurrence();
                     k.gemIDB();
                     System.out.println("Konkurrence resultat er gemt!");
+                    }
+                    catch(NullPointerException e){
+                        break;
+                    }
                     break;
                 case "4":
                     DataMapperResultat.visTop5();
@@ -174,7 +200,7 @@ public class Controller {
                     System.out.println("Programmet er lukket ned.");
                     break;
                 default: {
-                    System.out.println("Noget gik galt... Systemet gik ned.");
+                    System.out.println("Vælg venligst en af valgmulighederne.");
                 }
             }
         }

@@ -10,9 +10,9 @@ import java.util.Scanner;
 
 /*
 @Matti og @Mathias
-*/
+ */
+public class KonkurrenceResultat implements ResultatI {
 
-public class KonkurrenceResultat implements ResultatI{
     private String konkurrence;
     private int placering;
     private double tid;
@@ -29,7 +29,7 @@ public class KonkurrenceResultat implements ResultatI{
 
     @Override
     public void gemIDB() {
-           try {
+        try {
             DataMapperKonkurrence.konkurrenceInsert(this);
         } catch (SQLException ex) {
             System.out.println("SQLException");
@@ -37,57 +37,58 @@ public class KonkurrenceResultat implements ResultatI{
             System.out.println("ClassNotFoundException");
         }
     }
-    public static KonkurrenceResultat makekonkurrence(){
-        KonkurrenceResultat k=null;
+
+    public static KonkurrenceResultat makekonkurrence() {
+        KonkurrenceResultat k = null;
         Scanner s = new Scanner(System.in);
-                
-                
-                System.out.println("Skriv konkurrence navn");
-                String konkurrenceNavn;               
-                konkurrenceNavn=s.nextLine();
-                System.out.println("skriv placering");
-                int placering = -1;
-                
-                    
-                boolean isOn= true;
-                
-               while (isOn==true){
-                   try{
-                  
-                placering=s.nextInt();
-                
+        String exit = "0";
+        System.out.println("For at gå tilbage tast 0");
+        System.out.println("Skriv konkurrence navn");
+        String konkurrenceNavn;
+        konkurrenceNavn = s.nextLine();
+        if (konkurrenceNavn.equals(exit)) {
+            return null;
+        }
+        System.out.println("Skriv placering");
+        int placering = -1;
+
+        boolean isOn = true;
+
+        while (isOn == true) {
+            try {
+
+                placering = s.nextInt();
+
                 s.nextLine();
-                isOn= false;
-               }catch(InputMismatchException e){
-                        System.out.println("Input var ikke et tal");
-                        System.out.println("Skriv et tal");
-                        //placering = s.nextInt();
-                        s.nextLine();
-                        
-                        
-                        }
-               }
-               while(placering<1){
-                   System.out.println("input var minus eller 0 som ikke er valid input");
-                   placering =s.nextInt();
-                   
-               }
-                //s.nextLine();
-                System.out.println("skriv tid som for eksempel 21:16, hvor 21 er sekunder og 16 er milisekunder");
-                double tid;
-                tid=s.nextDouble();
+                isOn = false;
+            } catch (InputMismatchException e) {
+                System.out.println("Input var ikke et tal");
+                System.out.println("Skriv et tal");
+                //placering = s.nextInt();
                 s.nextLine();
-                String navn;
-                System.out.println("Skriv navn");
-                navn=s.nextLine();
-                String disciplin = DataMapperMedlem.aktivitetsForm();
-                 k = new KonkurrenceResultat(konkurrenceNavn,placering,tid,navn,disciplin);
-                    
-                    
+
+            }
+        }
+        while (placering < 1) {
+            System.out.println("Input var minus eller 0 som ikke er valid input");
+            placering = s.nextInt();
+
+        }
+        //s.nextLine();
+        System.out.println("Skriv tid som for eksempel 21,16, hvor 21 er sekunder og 16 er milisekunder:");
+        double tid;
+        tid = s.nextDouble();
+        s.nextLine();
+        String navn;
+        System.out.println("Skriv navn på medlem:");
+        navn = s.nextLine();
+        String disciplin = DataMapperMedlem.aktivitetsForm();
+        k = new KonkurrenceResultat(konkurrenceNavn, placering, tid, navn, disciplin);
+
         return k;
-        
+
     }
- 
+
     public String getKonkurrence() {
         return konkurrence;
     }
@@ -99,7 +100,6 @@ public class KonkurrenceResultat implements ResultatI{
     public void setDisciplin(String disciplin) {
         this.disciplin = disciplin;
     }
-    
 
     public void setKonkurrence(String konkurrence) {
         this.konkurrence = konkurrence;
@@ -129,5 +129,4 @@ public class KonkurrenceResultat implements ResultatI{
         this.medlemNavn = medlemNavn;
     }
 
-    
 }

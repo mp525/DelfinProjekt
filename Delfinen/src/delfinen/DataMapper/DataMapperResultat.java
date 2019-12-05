@@ -12,11 +12,10 @@ import java.util.InputMismatchException;
 import java.util.Scanner;
 
 public class DataMapperResultat {
-    
+
     /*
     @Mathias
-    */
-
+     */
     public static void resultatInsert(Resultat resultat) throws SQLException, ClassNotFoundException {
         Connection myConnector = null;
         PreparedStatement pstmt = null;
@@ -79,23 +78,25 @@ public class DataMapperResultat {
             String query = "";
             boolean isOn2 = true;
             String disc = "";
-            while(isOn2){
-            System.out.println("Hvilen disciplin vil du se top 5 i? (Crawl, Butterfly, Rygcrawl eller Brystsvoemning):");
-            disc = myScan.nextLine();
-            
-            if(disc.equals("Crawl")){    
-                isOn2 = false;
-            }
-            else if(disc.equals("Butterfly")){       
-                isOn2 = false;
-            }
-            else if(disc.equals("Rygcrawl")){   
-                isOn2 = false;
-            }
-            else if(disc.equals("Brystsvoemning")){  
-                isOn2 = false;
-            }
-            
+            while (isOn2) {
+                String exit = "0";
+                System.out.println("For at gå tilbage tast 0");
+                System.out.println("Hvilen disciplin vil du se top 5 i? (Crawl, Butterfly, Rygcrawl eller Brystsvoemning):");
+                disc = myScan.nextLine();
+                if (disc.equals(exit)) {
+                    return;
+                }
+
+                if (disc.equals("Crawl")) {
+                    isOn2 = false;
+                } else if (disc.equals("Butterfly")) {
+                    isOn2 = false;
+                } else if (disc.equals("Rygcrawl")) {
+                    isOn2 = false;
+                } else if (disc.equals("Brystsvoemning")) {
+                    isOn2 = false;
+                }
+
             }
             boolean isOn3 = true;
             while (isOn3) {

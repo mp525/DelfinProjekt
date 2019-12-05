@@ -9,12 +9,11 @@ import java.util.Scanner;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
-public class Resultat implements ResultatI{
-    
+public class Resultat implements ResultatI {
+
     /*
     @Mathias
-    */
-    
+     */
     private double tid;
 
     private String dato;
@@ -39,44 +38,46 @@ public class Resultat implements ResultatI{
             boolean isOn2 = true;
             String navn = "";
             while (isOn2) {
+                String exit = "0";
+                System.out.println("For at gå tilbage tast 0");
                 System.out.println("Navnet på medlemmet du vil opdatere?:");
                 navn = scan.nextLine();
+                if (navn.equals(exit)) {
+                    return null;
+                }
                 boolean exist = DataMapperMedlem.medlemTjek(navn);
                 if (exist == false) {
                     System.out.println("Medlemmet existerer ikke. Opret medlem før der laves resultat på det.");
-                } else{
+                } else {
                     isOn2 = false;
                 }
             }
-                
-                String disciplin = DataMapperMedlem.aktivitetsForm();
-                System.out.println("Tast længde svømmet:");
-                int længde = scan.nextInt();
-                scan.nextLine();
-                boolean isOn3 = true;
-                double tid = 0.0;
-                while(isOn3){
-                    try{
-                System.out.println("På hvilken tid? (Skriv sekund og milisekund adskilt med komma, (fx 10,45)):");
-                tid = scan.nextDouble();
-                scan.nextLine();
-                isOn3 = false;
-                    }
-                    catch(InputMismatchException e){
-                        System.out.println("Skriv sekund og milisekund adskilt med komma, (fx 10,45).");
-                        scan.nextLine();
-                    }
-                }
-                System.out.println("Skriv dato;");
-                String dato = scan.nextLine();
-                isOn = false;
-                resultat = new Resultat(tid, dato, navn, disciplin, længde);
-            }
 
-            return resultat;
+            String disciplin = DataMapperMedlem.aktivitetsForm();
+            System.out.println("Tast længde svømmet:");
+            int længde = scan.nextInt();
+            scan.nextLine();
+            boolean isOn3 = true;
+            double tid = 0.0;
+            while (isOn3) {
+                try {
+                    System.out.println("På hvilken tid? (Skriv sekund og milisekund adskilt med komma, (fx 10,45)):");
+                    tid = scan.nextDouble();
+                    scan.nextLine();
+                    isOn3 = false;
+                } catch (InputMismatchException e) {
+                    System.out.println("Skriv sekund og milisekund adskilt med komma, (fx 10,45).");
+                    scan.nextLine();
+                }
+            }
+            System.out.println("Skriv dato;");
+            String dato = scan.nextLine();
+            isOn = false;
+            resultat = new Resultat(tid, dato, navn, disciplin, længde);
         }
 
-    
+        return resultat;
+    }
 
     public double getTid() {
         return tid;
